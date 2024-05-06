@@ -28,4 +28,39 @@ services:
 
 ```````````````````````````````
 	# docker-compose up 
-	# docker-compose down  WELCOME 
+	# docker-compose down 
+
+------
+make repo in local system in that :
+  
+in terminal :
+  -cd that folder:
+   -service.yaml
+        - write code
+````````````````````````
+version: "3"
+services:
+ web1:
+  image: "httpd"
+  ports:
+   - "7500-7800:80"
+  depends_on: [web2]
+
+ web2:
+  image: "httpd"
+  ports:
+   - "8000:80"
+
+``````````````````````
+commands
+   - docker-compose -f services.yaml up -d
+   - docker-compose -f services.yaml ps -a
+   - docker-compose -f services.yaml scale web1=5
+   - docker-compose -f services.yaml ps -a
+   - docker-compose -f services.yaml pause
+   - docker-compose -f services.yaml ps -a
+   - docker-compose -f services.yaml unpause
+   - docker-compose -f services.yaml ps -a
+   - docker-compose -f services.yaml down
+
+ WELCOME 
