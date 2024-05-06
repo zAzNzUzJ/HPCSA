@@ -1,3 +1,48 @@
+
+# sudo apt install docker.io
+
+image            : path
+
+httpd            : /usr/local/apache2/htdocs
+nginx            : /usr/share/nginx/html
+ubuntu/apache2   : /var/www/html
+
+
+
+
+httpd image 
+    1	FROM httpd
+    2	COPY index.html /usr/local/apache2/htdocs
+
+	create index.html 
+		# nano index.html
+
+	# docker build -t imagename .
+	# docker run -it --name new33 -p 8000:80 imagename 
+
+
+
+nginx image 
+     1	FROM nginx
+     2	COPY index.html /usr/share/nginx/html
+	create index.html 
+		# nano index.html
+
+ubuntu/apache2   : /var/www/html       
+	1	FROM ubuntu/apache2
+	2	COPY index.html  /var/www/html
+	3	EXPOSE 80 
+	4	CMD ["apache2ctl" , "-D", "FOREGROUND"]
+
+	create index.html 
+		# nano index.html
+
+
+python:3 
+
+	create python file 
+	 
+		# nano p1.py
 			1	p1 = input("enter something : ")
 			2	print(p1)
 		# nano Dockerfile 
@@ -29,8 +74,10 @@ services:
 ```````````````````````````````
 	# docker-compose up 
 	# docker-compose down 
+-------------------
 
-------
+
+
 make repo in local system in that :
   
 in terminal :
@@ -63,4 +110,3 @@ commands
    - docker-compose -f services.yaml ps -a
    - docker-compose -f services.yaml down
 
- WELCOME 
