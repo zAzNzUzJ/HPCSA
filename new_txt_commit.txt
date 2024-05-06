@@ -1,1 +1,31 @@
-HELLO WELCOME 
+			1	p1 = input("enter something : ")
+			2	print(p1)
+		# nano Dockerfile 
+			1	FROM python:3
+			2	RUN mkdir /prog
+			3	COPY p1.py /prog/
+			4	CMD ["python3" , "/prog/p1.py"]
+
+
+
+
+# sudo apt install docker-compose
+docker-compose 
+	# nano docker-compose.yml       
+
+``````````````````````````````
+services:
+    web1:
+      image: httpd
+      ports:
+        - "9000:80"
+
+    web2:
+      image: curlimages/curl
+      command: sh -c "curl http://192.168.144.137:9000"
+      depends_on:
+       - web1
+
+```````````````````````````````
+	# docker-compose up 
+	# docker-compose down  WELCOME 
